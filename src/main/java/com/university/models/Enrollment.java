@@ -12,7 +12,10 @@ public class Enrollment {
     private double gradePoints;
     private boolean isCompleted;
 
-    public Enrollment() {}
+    public Enrollment() {
+        this.isCompleted = false;
+        this.gradePoints = 0.0;
+    }
 
     public Enrollment(int id, Student student, Course course, LocalDate enrollmentDate,
                       String grade, double gradePoints, boolean isCompleted) {

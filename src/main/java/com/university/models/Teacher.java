@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher extends User {
-    private int teacherId;
     private String employeeId;
     private LocalDate hireDate;
     private String qualification;
@@ -34,8 +33,7 @@ public class Teacher extends User {
     }
 
     // Getters and Setters
-    public int getTeacherId() { return teacherId; }
-    public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
+    // Note: getTeacherId() and setTeacherId() are inherited from User class
 
     public String getEmployeeId() { return employeeId; }
     public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
@@ -57,5 +55,7 @@ public class Teacher extends User {
 
     public void addCourse(Course course) {
         this.courses.add(course);
+        // Update teacher ID in parent class
+        this.setTeacherId(this.getId());
     }
 }

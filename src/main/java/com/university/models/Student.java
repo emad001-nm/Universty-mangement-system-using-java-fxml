@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User {
-    private int studentId;
     private String rollNumber;
     private LocalDate admissionDate;
     private int currentSemester;
@@ -35,8 +34,7 @@ public class Student extends User {
     }
 
     // Getters and Setters
-    public int getStudentId() { return studentId; }
-    public void setStudentId(int studentId) { this.studentId = studentId; }
+    // Note: getStudentId() and setStudentId() are inherited from User class
 
     public String getRollNumber() { return rollNumber; }
     public void setRollNumber(String rollNumber) { this.rollNumber = rollNumber; }
@@ -63,6 +61,8 @@ public class Student extends User {
         this.enrollments.add(enrollment);
         this.enrolledCourses.add(enrollment.getCourse());
         this.totalCredits += enrollment.getCourse().getCredits();
+        // Update student ID in parent class
+        this.setStudentId(this.getId());
     }
 
     public double calculateGPA() {

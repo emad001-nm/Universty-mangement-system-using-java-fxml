@@ -6,17 +6,20 @@ public class Course {
     private String courseCode;
     private String courseName;
     private int credits;
-    private Department department;
+    private String department;
     private Teacher teacher;
     private int semester;
     private String courseType;
     private int maxStudents;
     private int enrolledCount;
 
-    public Course() {}
+    public Course() {
+        this.maxStudents = 50;
+        this.enrolledCount = 0;
+    }
 
     public Course(int id, String courseCode, String courseName, int credits,
-                  Department department, Teacher teacher, int semester,
+                  String department, Teacher teacher, int semester,
                   String courseType, int maxStudents) {
         this.id = id;
         this.courseCode = courseCode;
@@ -43,8 +46,8 @@ public class Course {
     public int getCredits() { return credits; }
     public void setCredits(int credits) { this.credits = credits; }
 
-    public Department getDepartment() { return department; }
-    public void setDepartment(Department department) { this.department = department; }
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
 
     public Teacher getTeacher() { return teacher; }
     public void setTeacher(Teacher teacher) { this.teacher = teacher; }

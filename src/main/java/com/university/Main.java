@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -21,17 +20,17 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Parent root = loader.load();
 
-            // src/main/java/com/university/Main.java
-            Scene scene = new Scene(root, 1200, 700);
-            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-            primaryStage.setScene(scene);
+            Scene scene = new Scene(root, 450, 500);
+
             primaryStage.setTitle("University Management System - Login");
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
-            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
 
+            System.out.println("✓ Application started successfully!");
+
         } catch (Exception e) {
+            System.err.println("✗ Failed to start application!");
             e.printStackTrace();
         }
     }

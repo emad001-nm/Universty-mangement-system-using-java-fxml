@@ -4,7 +4,6 @@ package com.university.models;
 import java.time.LocalDate;
 
 public class Admin extends User {
-    private int adminId;
     private String adminIdCode;
     private String position;
     private String department;
@@ -23,8 +22,7 @@ public class Admin extends User {
     }
 
     // Getters and Setters
-    public int getAdminId() { return adminId; }
-    public void setAdminId(int adminId) { this.adminId = adminId; }
+    // Note: getAdminId() and setAdminId() are inherited from User class
 
     public String getAdminIdCode() { return adminIdCode; }
     public void setAdminIdCode(String adminIdCode) { this.adminIdCode = adminIdCode; }

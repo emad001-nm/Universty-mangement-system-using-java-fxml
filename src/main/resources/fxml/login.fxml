@@ -7,36 +7,22 @@
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.university.controllers.LoginController"
-      styleClass="login-container"
       alignment="CENTER"
-      spacing="20">
+      spacing="20"
+      style="-fx-background-color: linear-gradient(to bottom, #667eea, #764ba2); -fx-padding: 50;">
 
-    <VBox styleClass="login-box" alignment="CENTER" spacing="15">
-        <Label styleClass="login-title" text="🏛️ University Management System"/>
-        <Label styleClass="login-subtitle" text="Sign in to access your dashboard"/>
+    <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 40; -fx-min-width: 380; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 20, 0, 0, 10);">
+        <Label text="🏛️ University Management System" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;"/>
+        <Label text="Sign in to access your dashboard" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d; -fx-padding: 0 0 25 0;"/>
 
         <VBox spacing="15" alignment="CENTER">
-            <TextField fx:id="emailField"
-                       styleClass="login-field"
-                       promptText="Email Address"/>
-
-            <PasswordField fx:id="passwordField"
-                           styleClass="login-field"
-                           promptText="Password"/>
-
-            <Button fx:id="loginButton"
-                    styleClass="login-button"
-                    text="Sign In"
-                    onAction="#handleLogin"/>
-
-            <Label fx:id="errorLabel" styleClass="error-label"/>
-
-            <ProgressIndicator fx:id="loadingIndicator"
-                               styleClass="loading-indicator"
-                               visible="false"/>
+            <TextField fx:id="emailField" promptText="Email Address" style="-fx-padding: 12; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #ddd; -fx-pref-width: 300; -fx-font-size: 14px;"/>
+            <PasswordField fx:id="passwordField" promptText="Password" style="-fx-padding: 12; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #ddd; -fx-pref-width: 300; -fx-font-size: 14px;"/>
+            <Button fx:id="loginButton" text="Sign In" onAction="#handleLogin" style="-fx-background-color: #667eea; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 12 40; -fx-background-radius: 25; -fx-cursor: hand; -fx-pref-width: 300;"/>
+            <Label fx:id="errorLabel" text="" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            <ProgressIndicator fx:id="loadingIndicator" visible="false" style="-fx-scale-x: 0.6; -fx-scale-y: 0.6;"/>
         </VBox>
 
-        <Label text="Demo: admin@university.com / admin123"
-               style="-fx-text-fill: #95a5a6; -fx-font-size: 11px; -fx-padding: 10 0 0 0;"/>
+        <Label text="Demo: admin@university.com / admin123" style="-fx-text-fill: #95a5a6; -fx-font-size: 11px; -fx-padding: 15 0 0 0;"/>
     </VBox>
 </VBox>

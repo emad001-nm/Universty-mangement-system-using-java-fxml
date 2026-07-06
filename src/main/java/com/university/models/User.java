@@ -16,10 +16,23 @@ public class User {
     private String gender;
     private boolean isActive;
 
+    // Role-specific fields
+    private int studentId;
+    private String rollNumber;
+    private int teacherId;
+    private String employeeId;
+    private int adminId;
+    private String adminIdCode;
+
+    // Default constructor
     public User() {
         this.isActive = true;
+        this.studentId = 0;
+        this.teacherId = 0;
+        this.adminId = 0;
     }
 
+    // Full constructor
     public User(int id, String uniqueId, String fullName, String email, String password,
                 String role, String phone, String address, LocalDate dateOfBirth, String gender) {
         this.id = id;
@@ -33,6 +46,9 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.isActive = true;
+        this.studentId = 0;
+        this.teacherId = 0;
+        this.adminId = 0;
     }
 
     // Getters and Setters
@@ -68,6 +84,25 @@ public class User {
 
     public boolean isActive() { return isActive; }
     public void setActive(boolean active) { isActive = active; }
+
+    // Role-specific getters and setters
+    public int getStudentId() { return studentId; }
+    public void setStudentId(int studentId) { this.studentId = studentId; }
+
+    public String getRollNumber() { return rollNumber; }
+    public void setRollNumber(String rollNumber) { this.rollNumber = rollNumber; }
+
+    public int getTeacherId() { return teacherId; }
+    public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
+
+    public String getEmployeeId() { return employeeId; }
+    public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
+
+    public int getAdminId() { return adminId; }
+    public void setAdminId(int adminId) { this.adminId = adminId; }
+
+    public String getAdminIdCode() { return adminIdCode; }
+    public void setAdminIdCode(String adminIdCode) { this.adminIdCode = adminIdCode; }
 
     @Override
     public String toString() {
