@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+        VBox xmlns="http://javafx.com/javafx/17"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.university.controllers.TeacherController"
+        styleClass="management-container"
+        spacing="15">
+
+<HBox styleClass="management-header" spacing="15" alignment="CENTER_LEFT">
+    <VBox spacing="2">
+        <Label styleClass="management-title" text="👨‍🏫 Teacher Management"/>
+        <Label styleClass="management-subtitle" text="Manage faculty members and instructors"/>
+    </VBox>
+    <Region HBox.hgrow="ALWAYS"/>
+    <HBox spacing="10">
+        <Button styleClass="action-button" text="🔄 Refresh" onAction="#refreshTeachers"/>
+        <Button styleClass="action-button-success" text="➕ Add Teacher" onAction="#showAddTeacher"/>
+        <Button styleClass="action-button-danger" text="✖ Close" onAction="#closeWindow"/>
+    </HBox>
+</HBox>
+
+<HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
+<TextField fx:id="searchField" styleClass="search-field" promptText="🔍 Search teachers..." HBox.hgrow="ALWAYS"/>
+<ComboBox fx:id="filterDept" styleClass="filter-combo" promptText="All Departments"/>
+<ComboBox fx:id="filterQualification" styleClass="filter-combo" promptText="All Qualifications"/>
+</HBox>
+
+<TableView fx:id="teacherTable" styleClass="modern-table" VBox.vgrow="ALWAYS">
+<columns>
+    <TableColumn text="#" fx:id="idCol" prefWidth="50" styleClass="table-column-center"/>
+    <TableColumn text="Unique ID" fx:id="uniqueIdCol" prefWidth="100"/>
+    <TableColumn text="Full Name" fx:id="nameCol" prefWidth="150"/>
+    <TableColumn text="Email" fx:id="emailCol" prefWidth="180"/>
+    <TableColumn text="Employee ID" fx:id="empIdCol" prefWidth="100"/>
+    <TableColumn text="Department" fx:id="deptCol" prefWidth="120"/>
+    <TableColumn text="Designation" fx:id="designationCol" prefWidth="120"/>
+    <TableColumn text="Status" fx:id="statusCol" prefWidth="100" styleClass="table-column-center"/>
+</columns>
+</TableView>
+
+<HBox styleClass="action-bar" spacing="10" alignment="CENTER">
+<Button styleClass="action-button" text="✏️ Edit" onAction="#editTeacher"/>
+<Button styleClass="action-button-danger" text="🗑️ Delete" onAction="#deleteTeacher"/>
+<Button styleClass="action-button-warning" text="📋 View Details" onAction="#viewDetails"/>
+<Region HBox.hgrow="ALWAYS"/>
+<Label fx:id="recordCount" styleClass="record-count" text="Showing 0 records"/>
+</HBox>
+        </VBox>

@@ -1,0 +1,78 @@
+<!-- src/main/resources/fxml/add_student_dialog.fxml -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="dialog-pane">
+
+    <header>
+        <HBox styleClass="dialog-header" alignment="CENTER_LEFT" spacing="15">
+            <Text style="-fx-font-size: 32px;">👨‍🎓</Text>
+            <VBox spacing="5">
+                <Label styleClass="dialog-title">Add New Student</Label>
+                <Label styleClass="dialog-subtitle">Enter the student information below</Label>
+            </VBox>
+        </HBox>
+    </header>
+
+    <content>
+        <GridPane styleClass="dialog-form" hgap="20" vgap="15" padding="20">
+            <!-- Personal Information Section -->
+            <Label styleClass="section-title" text="Personal Information"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+            <Label text="Full Name" styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="fullNameField" promptText="Enter full name"
+                       styleClass="dialog-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Email" styleClass="field-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="emailField" promptText="Enter email address"
+                       styleClass="dialog-field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Phone" styleClass="field-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="phoneField" promptText="Enter phone number"
+                       styleClass="dialog-field" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Date of Birth" styleClass="field-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dobPicker" promptText="Select date of birth"
+                        styleClass="dialog-field" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Gender" styleClass="field-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="genderCombo" promptText="Select gender"
+                      styleClass="dialog-field" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+            <!-- Academic Information Section -->
+            <Label styleClass="section-title" text="Academic Information"
+                   GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
+
+            <Label text="Roll Number" styleClass="field-label" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+            <TextField fx:id="rollNumberField" promptText="Enter roll number"
+                       styleClass="dialog-field" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+            <Label text="Department" styleClass="field-label" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="departmentCombo" promptText="Select department"
+                      styleClass="dialog-field" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+            <Label text="Semester" styleClass="field-label" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="semesterCombo" promptText="Select semester"
+                      styleClass="dialog-field" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+            <!-- Security Information Section -->
+            <Label styleClass="section-title" text="Security Information"
+                   GridPane.columnIndex="0" GridPane.rowIndex="10" GridPane.columnSpan="2"/>
+
+            <Label text="Password" styleClass="field-label" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" promptText="Enter password"
+                           styleClass="dialog-field" GridPane.rowIndex="11" GridPane.columnIndex="1"/>
+
+            <Label text="Confirm Password" styleClass="field-label" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm password"
+                           styleClass="dialog-field" GridPane.rowIndex="12" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>
