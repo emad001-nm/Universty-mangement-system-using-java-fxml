@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.university.controllers.Teacher.MyCoursesController"
+      spacing="15"
+      style="-fx-padding: 20; -fx-background-color: #f0f2f5;">
+
+    <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 15 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <VBox spacing="2">
+            <Label text="📚 My Courses" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label text="View all your assigned courses" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Refresh" onAction="#loadCourses" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+    </HBox>
+
+    <TableView fx:id="courseTable" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <columns>
+            <TableColumn text="ID" fx:id="idCol" prefWidth="50" style="-fx-alignment: center;"/>
+            <TableColumn text="Course Code" fx:id="codeCol" prefWidth="100"/>
+            <TableColumn text="Course Name" fx:id="nameCol" prefWidth="250"/>
+            <TableColumn text="Credits" fx:id="creditsCol" prefWidth="80" style="-fx-alignment: center;"/>
+            <TableColumn text="Students" fx:id="studentsCol" prefWidth="100" style="-fx-alignment: center;"/>
+            <TableColumn text="Type" fx:id="typeCol" prefWidth="100" style="-fx-alignment: center;"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 12 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <Button text="👨‍🎓 View Students" onAction="#viewStudents" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+        <Button text="📋 View Details" onAction="#viewDetails" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+    </HBox>
+</VBox>

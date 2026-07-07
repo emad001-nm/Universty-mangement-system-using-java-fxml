@@ -48,7 +48,6 @@ public class SessionManager {
         currentUser = null;
     }
 
-    // ===== GETTER METHODS =====
     public String getFullName() {
         return currentUser != null ? currentUser.getFullName() : "";
     }
