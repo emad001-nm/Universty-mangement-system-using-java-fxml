@@ -5,8 +5,11 @@ import java.time.LocalDate;
 
 public class Enrollment {
     private int id;
-    private Student student;
-    private Course course;
+    private int studentId;
+    private String studentName;
+    private int courseId;
+    private String courseName;
+    private String courseCode;
     private LocalDate enrollmentDate;
     private String grade;
     private double gradePoints;
@@ -17,11 +20,11 @@ public class Enrollment {
         this.gradePoints = 0.0;
     }
 
-    public Enrollment(int id, Student student, Course course, LocalDate enrollmentDate,
+    public Enrollment(int id, int studentId, int courseId, LocalDate enrollmentDate,
                       String grade, double gradePoints, boolean isCompleted) {
         this.id = id;
-        this.student = student;
-        this.course = course;
+        this.studentId = studentId;
+        this.courseId = courseId;
         this.enrollmentDate = enrollmentDate;
         this.grade = grade;
         this.gradePoints = gradePoints;
@@ -32,11 +35,20 @@ public class Enrollment {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public Student getStudent() { return student; }
-    public void setStudent(Student student) { this.student = student; }
+    public int getStudentId() { return studentId; }
+    public void setStudentId(int studentId) { this.studentId = studentId; }
 
-    public Course getCourse() { return course; }
-    public void setCourse(Course course) { this.course = course; }
+    public String getStudentName() { return studentName; }
+    public void setStudentName(String studentName) { this.studentName = studentName; }
+
+    public int getCourseId() { return courseId; }
+    public void setCourseId(int courseId) { this.courseId = courseId; }
+
+    public String getCourseName() { return courseName; }
+    public void setCourseName(String courseName) { this.courseName = courseName; }
+
+    public String getCourseCode() { return courseCode; }
+    public void setCourseCode(String courseCode) { this.courseCode = courseCode; }
 
     public LocalDate getEnrollmentDate() { return enrollmentDate; }
     public void setEnrollmentDate(LocalDate enrollmentDate) { this.enrollmentDate = enrollmentDate; }

@@ -13,14 +13,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Initialize database connection
             DatabaseConnection.getInstance();
 
-            // Load login screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root, 450, 500);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
             primaryStage.setTitle("University Management System - Login");
             primaryStage.setScene(scene);
@@ -37,7 +36,6 @@ public class Main extends Application {
 
     @Override
     public void stop() {
-        // Close database connection
         DatabaseConnection.getInstance().closeConnection();
     }
 

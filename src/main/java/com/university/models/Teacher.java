@@ -7,46 +7,34 @@ import java.util.List;
 
 public class Teacher extends User {
     private String employeeId;
-    private int departmentId;
-    private String departmentName;
     private LocalDate hireDate;
     private String qualification;
     private String specialization;
     private boolean isHod;
     private List<Course> courses;
-    private List<ClassSchedule> schedules;
 
     public Teacher() {
         super();
         this.courses = new ArrayList<>();
-        this.schedules = new ArrayList<>();
         this.isHod = false;
     }
 
     public Teacher(int userId, String uniqueId, String fullName, String email, String password,
                    String phone, String address, LocalDate dateOfBirth, String gender,
-                   String employeeId, int departmentId, LocalDate hireDate,
-                   String qualification, String specialization, boolean isHod) {
+                   String employeeId, LocalDate hireDate, String qualification,
+                   String specialization, boolean isHod) {
         super(userId, uniqueId, fullName, email, password, "teacher", phone, address, dateOfBirth, gender);
         this.employeeId = employeeId;
-        this.departmentId = departmentId;
         this.hireDate = hireDate;
         this.qualification = qualification;
         this.specialization = specialization;
         this.isHod = isHod;
         this.courses = new ArrayList<>();
-        this.schedules = new ArrayList<>();
     }
 
     // Getters and Setters
     public String getEmployeeId() { return employeeId; }
     public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
-
-    public int getDepartmentId() { return departmentId; }
-    public void setDepartmentId(int departmentId) { this.departmentId = departmentId; }
-
-    public String getDepartmentName() { return departmentName; }
-    public void setDepartmentName(String departmentName) { this.departmentName = departmentName; }
 
     public LocalDate getHireDate() { return hireDate; }
     public void setHireDate(LocalDate hireDate) { this.hireDate = hireDate; }
@@ -62,16 +50,4 @@ public class Teacher extends User {
 
     public List<Course> getCourses() { return courses; }
     public void setCourses(List<Course> courses) { this.courses = courses; }
-
-    public List<ClassSchedule> getSchedules() { return schedules; }
-    public void setSchedules(List<ClassSchedule> schedules) { this.schedules = schedules; }
-
-    public void addCourse(Course course) {
-        this.courses.add(course);
-        this.setTeacherId(this.getId());
-    }
-
-    public void addSchedule(ClassSchedule schedule) {
-        this.schedules.add(schedule);
-    }
 }

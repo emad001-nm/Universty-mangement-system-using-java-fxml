@@ -27,7 +27,6 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        // Enter key support
         passwordField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 handleLogin();
@@ -66,7 +65,16 @@ public class LoginController {
         try {
             Connection conn = DatabaseConnection.getInstance().getConnection();
 
-            String query = "SELECT * FROM users WHERE email = ? AND password = ? AND is_active = 1";
+            String query = "SELECT u.*, " +
+                    "s.id as student_id, s.roll_number, " +
+                    "t.id as teacher_id, t.employee_id, " +
+                    "a.id as admin_id, a.admin_id as admin_code " +
+                    "FROM users u " +
+                    "LEFT JOIN students s ON u.id = s.user_id " +
+                    "LEFT JOIN teachers t ON u.id = t.user_id " +
+                    "LEFT JOIN admins a ON u.id = a.user_id " +
+                    "WHERE u.email = ? AND u.password = ? AND u.is_active = 1";
+
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, email);
             pstmt.setString(2, password);
@@ -81,8 +89,21 @@ public class LoginController {
                 user.setEmail(rs.getString("email"));
                 user.setRole(rs.getString("role"));
                 user.setPhone(rs.getString("phone"));
+                user.setAddress(rs.getString("address"));
                 user.setGender(rs.getString("gender"));
                 user.setActive(rs.getBoolean("is_active"));
+
+                String role = user.getRole();
+                if ("student".equals(role)) {
+                    user.setStudentId(rs.getInt("student_id"));
+                    user.setRollNumber(rs.getString("roll_number"));
+                } else if ("teacher".equals(role)) {
+                    user.setTeacherId(rs.getInt("teacher_id"));
+                    user.setEmployeeId(rs.getString("employee_id"));
+                } else if ("admin".equals(role)) {
+                    user.setAdminId(rs.getInt("admin_id"));
+                    user.setAdminCode(rs.getString("admin_code"));
+                }
 
                 SessionManager.getInstance().setCurrentUser(user);
 
@@ -117,13 +138,32 @@ public class LoginController {
 
     private void openDashboard() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dashboard.fxml"));
+            String role = SessionManager.getInstance().getRole();
+            String fxmlPath;
+
+            switch (role) {
+                case "admin":
+                    fxmlPath = "/fxml/admin/admin_dashboard.fxml";
+                    break;
+                case "teacher":
+                    fxmlPath = "/fxml/teacher/teacher_dashboard.fxml";
+                    break;
+                case "student":
+                    fxmlPath = "/fxml/student/student_dashboard.fxml";
+                    break;
+                default:
+                    fxmlPath = "/fxml/dashboard.fxml";
+            }
+
+            System.out.println("Loading: " + fxmlPath); // Debug line
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
             Stage stage = new Stage();
             stage.setTitle("University Management System - Dashboard");
-            stage.setScene(new Scene(root, 1100, 700));
-            stage.setMinWidth(900);
+            stage.setScene(new Scene(root, 1200, 700));
+            stage.setMinWidth(1024);
             stage.setMinHeight(600);
             stage.show();
 

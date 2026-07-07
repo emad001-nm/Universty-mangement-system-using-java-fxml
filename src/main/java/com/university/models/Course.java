@@ -6,8 +6,10 @@ public class Course {
     private String courseCode;
     private String courseName;
     private int credits;
-    private String department;
-    private Teacher teacher;
+    private int departmentId;
+    private String departmentName;
+    private int teacherId;
+    private String teacherName;
     private int semester;
     private String courseType;
     private int maxStudents;
@@ -19,14 +21,14 @@ public class Course {
     }
 
     public Course(int id, String courseCode, String courseName, int credits,
-                  String department, Teacher teacher, int semester,
+                  int departmentId, int teacherId, int semester,
                   String courseType, int maxStudents) {
         this.id = id;
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.credits = credits;
-        this.department = department;
-        this.teacher = teacher;
+        this.departmentId = departmentId;
+        this.teacherId = teacherId;
         this.semester = semester;
         this.courseType = courseType;
         this.maxStudents = maxStudents;
@@ -46,11 +48,17 @@ public class Course {
     public int getCredits() { return credits; }
     public void setCredits(int credits) { this.credits = credits; }
 
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
+    public int getDepartmentId() { return departmentId; }
+    public void setDepartmentId(int departmentId) { this.departmentId = departmentId; }
 
-    public Teacher getTeacher() { return teacher; }
-    public void setTeacher(Teacher teacher) { this.teacher = teacher; }
+    public String getDepartmentName() { return departmentName; }
+    public void setDepartmentName(String departmentName) { this.departmentName = departmentName; }
+
+    public int getTeacherId() { return teacherId; }
+    public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
+
+    public String getTeacherName() { return teacherName; }
+    public void setTeacherName(String teacherName) { this.teacherName = teacherName; }
 
     public int getSemester() { return semester; }
     public void setSemester(int semester) { this.semester = semester; }
@@ -63,6 +71,10 @@ public class Course {
 
     public int getEnrolledCount() { return enrolledCount; }
     public void setEnrolledCount(int enrolledCount) { this.enrolledCount = enrolledCount; }
+
+    public int getAvailableSeats() {
+        return maxStudents - enrolledCount;
+    }
 
     public boolean isAvailable() {
         return enrolledCount < maxStudents;

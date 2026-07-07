@@ -28,9 +28,6 @@ public class User {
 
     public User() {
         this.isActive = true;
-        this.studentId = 0;
-        this.teacherId = 0;
-        this.adminId = 0;
     }
 
     public User(int id, String uniqueId, String fullName, String email, String password,
@@ -46,9 +43,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.isActive = true;
-        this.studentId = 0;
-        this.teacherId = 0;
-        this.adminId = 0;
     }
 
     // Getters and Setters

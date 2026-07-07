@@ -32,10 +32,6 @@ public class SessionManager {
         return currentUser != null;
     }
 
-    public void logout() {
-        currentUser = null;
-    }
-
     public boolean isAdmin() {
         return currentUser != null && "admin".equals(currentUser.getRole());
     }
@@ -46,5 +42,17 @@ public class SessionManager {
 
     public boolean isTeacher() {
         return currentUser != null && "teacher".equals(currentUser.getRole());
+    }
+
+    public void logout() {
+        currentUser = null;
+    }
+
+    public String getFullName() {
+        return currentUser != null ? currentUser.getFullName() : "";
+    }
+
+    public String getRole() {
+        return currentUser != null ? currentUser.getRole() : "";
     }
 }
