@@ -6,7 +6,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.university.controllers.AdminDashboardController"
+            fx:controller="com.university.controllers.Admin.AdminDashboardController"
             style="-fx-background-color: #f0f2f5;">
 
     <top>
@@ -30,11 +30,15 @@
             <Label text="📋 Navigation" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
             <Separator style="-fx-background-color: rgba(255,255,255,0.1);"/>
 
-            <Button text="📊 Dashboard" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8;"/>
+            <Button text="📊 Dashboard" onAction="#showDashboard" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
             <Button text="👥 Users" onAction="#showUserManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
             <Button text="🏢 Departments" onAction="#showDepartmentManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
             <Button text="📚 Courses" onAction="#showCourseManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button text="📝 Enrollments" onAction="#showEnrollmentManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button text="💰 Fees" onAction="#showFeeManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
             <Button text="📈 Reports" onAction="#showReports" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button text="⚙️ Settings" onAction="#showSystemManagement" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button text="👤 Profile" onAction="#showProfile" style="-fx-background-color: transparent; -fx-text-fill: #bdc3c7; -fx-padding: 10; -fx-pref-width: 180; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Region VBox.vgrow="ALWAYS"/>
             <Label text="v2.0.0" style="-fx-text-fill: rgba(255,255,255,0.3); -fx-font-size: 11px;"/>
@@ -42,42 +46,8 @@
     </left>
 
     <center>
-        <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #f0f2f5;">
-            <Label fx:id="welcomeLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-
-            <HBox spacing="20">
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="totalStudents" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Total Students" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="totalTeachers" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Total Teachers" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="totalCourses" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Total Courses" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="totalDepartments" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Departments" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-            </HBox>
-
-            <HBox spacing="20">
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="pendingFees" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Pending Fees" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-
-                <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-min-width: 150; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);">
-                    <Label fx:id="todayAttendance" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-                    <Label text="Today's Attendance" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
-                </VBox>
-            </HBox>
-        </VBox>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #f0f2f5; -fx-padding: 0;">
+            <!-- Default content will be loaded here -->
+        </StackPane>
     </center>
 </BorderPane>

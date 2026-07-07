@@ -22,4 +22,6 @@ module com.university {
     exports com.university.controllers;
     exports com.university.models;
     exports com.university.utils;
+    exports com.university.controllers.Admin;
+    opens com.university.controllers.Admin to javafx.fxml;
 }

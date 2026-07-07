@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      spacing="20"
+      alignment="CENTER"
+      style="-fx-padding: 30; -fx-background-color: #f0f2f5;">
+
+    <Label text="⚙️ System Management" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+    <Label text="Manage system settings and operations" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+
+    <VBox spacing="15" alignment="CENTER">
+        <Button text="💾 Backup Database"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 40; -fx-background-radius: 10; -fx-cursor: hand; -fx-pref-width: 250;"/>
+        <Button text="🔄 Restore Database"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 40; -fx-background-radius: 10; -fx-cursor: hand; -fx-pref-width: 250;"/>
+        <Button text="👤 Manage Profile"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 40; -fx-background-radius: 10; -fx-cursor: hand; -fx-pref-width: 250;"/>
+    </VBox>
+</VBox>

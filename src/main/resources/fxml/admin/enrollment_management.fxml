@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.university.controllers.Admin.EnrollmentManagementController"
+      spacing="15"
+      style="-fx-padding: 20; -fx-background-color: #f0f2f5;">
+
+    <!-- Header -->
+    <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 15 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <VBox spacing="2">
+            <Label text="📝 Enrollment Management" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label text="Manage student enrollments in courses" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox spacing="10">
+            <Button text="🔄 Refresh" onAction="#refreshEnrollments" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+            <Button text="➕ Enroll Student" onAction="#enrollStudent" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+        </HBox>
+    </HBox>
+
+    <!-- Search -->
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 15 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <TextField fx:id="searchField" promptText="🔍 Search enrollments..." HBox.hgrow="ALWAYS" style="-fx-padding: 8 12; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #ddd; -fx-font-size: 14px;"/>
+    </HBox>
+
+    <!-- Enrollment Table -->
+    <TableView fx:id="enrollmentTable" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <columns>
+            <TableColumn text="ID" fx:id="enrollIdCol" prefWidth="50" style="-fx-alignment: center;"/>
+            <TableColumn text="Student" fx:id="enrollStudentCol" prefWidth="200"/>
+            <TableColumn text="Course" fx:id="enrollCourseCol" prefWidth="200"/>
+            <TableColumn text="Enrollment Date" fx:id="enrollDateCol" prefWidth="150"/>
+            <TableColumn text="Grade" fx:id="enrollGradeCol" prefWidth="80" style="-fx-alignment: center;"/>
+            <TableColumn text="Status" fx:id="enrollStatusCol" prefWidth="100" style="-fx-alignment: center;"/>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 12 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 3);">
+        <Button text="✏️ Edit Grade" onAction="#editGrade" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+        <Button text="🗑️ Remove" onAction="#removeEnrollment" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 20; -fx-cursor: hand;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="recordCount" text="Showing 0 records" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+    </HBox>
+</VBox>

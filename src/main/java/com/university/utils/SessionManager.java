@@ -48,11 +48,60 @@ public class SessionManager {
         currentUser = null;
     }
 
+    // ===== GETTER METHODS =====
     public String getFullName() {
         return currentUser != null ? currentUser.getFullName() : "";
     }
 
     public String getRole() {
         return currentUser != null ? currentUser.getRole() : "";
+    }
+
+    public String getUniqueId() {
+        return currentUser != null ? currentUser.getUniqueId() : "";
+    }
+
+    public String getEmail() {
+        return currentUser != null ? currentUser.getEmail() : "";
+    }
+
+    public String getPhone() {
+        return currentUser != null ? currentUser.getPhone() : "";
+    }
+
+    public String getAddress() {
+        return currentUser != null ? currentUser.getAddress() : "";
+    }
+
+    public String getGender() {
+        return currentUser != null ? currentUser.getGender() : "";
+    }
+
+    public int getUserId() {
+        return currentUser != null ? currentUser.getId() : -1;
+    }
+
+    public int getStudentId() {
+        return currentUser != null ? currentUser.getStudentId() : -1;
+    }
+
+    public int getTeacherId() {
+        return currentUser != null ? currentUser.getTeacherId() : -1;
+    }
+
+    public int getAdminId() {
+        return currentUser != null ? currentUser.getAdminId() : -1;
+    }
+
+    public String getRollNumber() {
+        return currentUser != null ? currentUser.getRollNumber() : "";
+    }
+
+    public String getEmployeeId() {
+        return currentUser != null ? currentUser.getEmployeeId() : "";
+    }
+
+    public String getAdminCode() {
+        return currentUser != null ? currentUser.getAdminCode() : "";
     }
 }

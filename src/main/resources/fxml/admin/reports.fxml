@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      spacing="20"
+      alignment="CENTER"
+      style="-fx-padding: 30; -fx-background-color: #f0f2f5;">
+
+    <Label text="📈 Reports" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+    <Label text="Generate various reports from the system" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+
+    <GridPane hgap="20" vgap="15" alignment="CENTER">
+        <Button text="📊 Student Report"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Button text="👨‍🏫 Teacher Report"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Button text="📚 Course Report"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Button text="✅ Attendance Report"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button text="💰 Fee Report"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Button text="📈 CGPA Report"
+                style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 10; -fx-cursor: hand;"
+                GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+</VBox>
