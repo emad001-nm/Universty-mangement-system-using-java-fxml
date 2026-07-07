@@ -15,16 +15,17 @@ public class User {
     private LocalDate dateOfBirth;
     private String gender;
     private boolean isActive;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 
-    // Role-specific fields
+    // Role-specific IDs
     private int studentId;
-    private String rollNumber;
     private int teacherId;
-    private String employeeId;
     private int adminId;
-    private String adminIdCode;
+    private String rollNumber;
+    private String employeeId;
+    private String adminCode;
 
-    // Default constructor
     public User() {
         this.isActive = true;
         this.studentId = 0;
@@ -32,7 +33,6 @@ public class User {
         this.adminId = 0;
     }
 
-    // Full constructor
     public User(int id, String uniqueId, String fullName, String email, String password,
                 String role, String phone, String address, LocalDate dateOfBirth, String gender) {
         this.id = id;
@@ -85,24 +85,30 @@ public class User {
     public boolean isActive() { return isActive; }
     public void setActive(boolean active) { isActive = active; }
 
+    public LocalDate getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDate createdAt) { this.createdAt = createdAt; }
+
+    public LocalDate getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDate updatedAt) { this.updatedAt = updatedAt; }
+
     // Role-specific getters and setters
     public int getStudentId() { return studentId; }
     public void setStudentId(int studentId) { this.studentId = studentId; }
 
-    public String getRollNumber() { return rollNumber; }
-    public void setRollNumber(String rollNumber) { this.rollNumber = rollNumber; }
-
     public int getTeacherId() { return teacherId; }
     public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
-
-    public String getEmployeeId() { return employeeId; }
-    public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
 
     public int getAdminId() { return adminId; }
     public void setAdminId(int adminId) { this.adminId = adminId; }
 
-    public String getAdminIdCode() { return adminIdCode; }
-    public void setAdminIdCode(String adminIdCode) { this.adminIdCode = adminIdCode; }
+    public String getRollNumber() { return rollNumber; }
+    public void setRollNumber(String rollNumber) { this.rollNumber = rollNumber; }
+
+    public String getEmployeeId() { return employeeId; }
+    public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
+
+    public String getAdminCode() { return adminCode; }
+    public void setAdminCode(String adminCode) { this.adminCode = adminCode; }
 
     @Override
     public String toString() {

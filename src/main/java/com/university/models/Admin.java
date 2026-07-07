@@ -4,7 +4,7 @@ package com.university.models;
 import java.time.LocalDate;
 
 public class Admin extends User {
-    private String adminIdCode;
+    private String adminCode;
     private String position;
     private String department;
 
@@ -14,18 +14,16 @@ public class Admin extends User {
 
     public Admin(int userId, String uniqueId, String fullName, String email, String password,
                  String phone, String address, LocalDate dateOfBirth, String gender,
-                 String adminIdCode, String position, String department) {
+                 String adminCode, String position, String department) {
         super(userId, uniqueId, fullName, email, password, "admin", phone, address, dateOfBirth, gender);
-        this.adminIdCode = adminIdCode;
+        this.adminCode = adminCode;
         this.position = position;
         this.department = department;
     }
 
     // Getters and Setters
-    // Note: getAdminId() and setAdminId() are inherited from User class
-
-    public String getAdminIdCode() { return adminIdCode; }
-    public void setAdminIdCode(String adminIdCode) { this.adminIdCode = adminIdCode; }
+    public String getAdminCode() { return adminCode; }
+    public void setAdminCode(String adminCode) { this.adminCode = adminCode; }
 
     public String getPosition() { return position; }
     public void setPosition(String position) { this.position = position; }
